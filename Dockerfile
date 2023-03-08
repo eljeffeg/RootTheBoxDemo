@@ -3,13 +3,13 @@
 #  Dockerfile for Root the Box
 #  v0.1.3 - By Moloch, ElJeffe
 
-FROM memcached
+FROM python:3.8
 
 RUN mkdir /opt/rtb
 ADD . /opt/rtb
 
 RUN apt-get update && apt-get install -y \
-build-essential zlib1g-dev rustc \
+build-essential zlib1g-dev memcached rustc \
 python3-pycurl sqlite3 libsqlite3-dev 
 
 ADD ./setup/requirements.txt ./
